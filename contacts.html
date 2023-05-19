@@ -152,24 +152,41 @@
               Get in Touch
             </h2>
           </div>
-          <div id="snackbar">Your message have been sent Successfully</div>
+          <div id="snackbar">YOur message have been sent successfully</div>
 
           <!-- <div id="sendmessage" name="_next">پیام شما ارسال خواهد شد با تشکر!</div> -->
           <div class="col-lg-7 form-style">
             <form
-              action="https://formsubmit.co/samiullah.rahimi0909@gmail.com"
               class="form-contact contact_form"
-              method="POST"
+              action="http://formsubmit.co/samiullah.rahimi0909@gmail.com"
+              method="post"
             >
               <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <textarea
+                      class="form-control w-100"
+                      name="Message"
+                      id="Message"
+                      cols="30"
+                      rows="9"
+                      required
+                      onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Enter Message'"
+                      placeholder="Enter Message"
+                    ></textarea>
+                  </div>
+                </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <input
                       class="form-control"
-                      name="name"
-                      id="name"
+                      name="Name"
+                      id="Name"
                       required
                       type="text"
+                      onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Enter your name'"
                       placeholder="Enter your name"
                     />
                   </div>
@@ -178,10 +195,12 @@
                   <div class="form-group">
                     <input
                       class="form-control"
-                      name="email"
-                      id="email"
+                      name="Email"
+                      id="Email"
                       required
                       type="email"
+                      onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Enter email address'"
                       placeholder="Enter email address"
                     />
                   </div>
@@ -190,39 +209,28 @@
                   <div class="form-group">
                     <input
                       class="form-control"
-                      name="subject"
-                      id="subject"
+                      name="Subject"
+                      id="Subject"
                       required
                       type="text"
+                      onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Enter Subject'"
                       placeholder="Enter Subject"
                     />
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group">
-                    <textarea
-                      class="form-control w-100"
-                      name="message"
-                      id="message"
-                      cols="30"
-                      rows="9"
-                      required
-                      placeholder="Enter Message"
-                    ></textarea>
                   </div>
                 </div>
               </div>
               <input
                 type="hidden"
                 name="_subject"
-                value="MESSAGE FROM PORTFOLIO CUSTOMERS!!!"
+                value="Recieved Email from customers"
               />
 
               <input type="hidden" name="_captcha" value="false" />
               <input
                 type="hidden"
                 name="_next"
-                value="https://samiullah-rahimi-portfolio.netlify.app/contacts.html"
+                value="http://127.0.0.1:5500/contact.html"
               />
               <div class="form-group mt-3">
                 <button
@@ -260,6 +268,19 @@
         </div>
       </div>
     </section>
+
+    <div id="confirmation-card" class="confirmation-card">
+      <h2>Success</h2>
+      <p>Thank from your message we will back to you soon!</p>
+      <div class="confirmation-actions">
+        <a href="contact.html" id="okbutton">
+          <button class="confirm-button">OK</button></a
+        >
+        <!-- <button class="cancel-button" onclick="hideConfirmationCard()"> -->
+        <!-- No
+        </button> -->
+      </div>
+    </div>
 
     <!-- ================ contact section end ================= -->
 
@@ -398,5 +419,31 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+      // This code is for the flash message
+      function showConfirmationCard() {
+        document.getElementById("confirmation-card").style.display = "block";
+      }
+
+      function hideConfirmationCard() {
+        document.getElementById("confirmation-card").style.display = "none";
+      }
+
+      function deleteItem() {
+        // Perform delete operation here
+
+        // Show flash message
+        var flashMessage = document.createElement("div");
+        flashMessage.className = "flash-message";
+        flashMessage.innerText = "Item deleted successfully!";
+        document.body.appendChild(flashMessage);
+
+        // Remove flash message after 2 seconds
+        setTimeout(function () {
+          flashMessage.remove();
+        }, 2000);
+      }
+    </script>
   </body>
 </html>

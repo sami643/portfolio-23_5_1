@@ -1470,7 +1470,7 @@ h3 {
 
 /* line 35, ../../Arafath/CL/Cl November/228. Resume-02/HTML/scss/_slider.scss */
 .slider_area .single_slider .slider_text.about_slide {
-  padding: 241px 0 258px 0;
+  padding: 241px 0 100px 0;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -2763,7 +2763,7 @@ h3 {
 /* line 43, ../../Arafath/CL/Cl November/228. Resume-02/HTML/scss/_footer.scss */
 .footer .footer_top .single_links {
   border: 1px solid #7a5444;
-  padding: 25px 30px;
+  padding: 25px 20px;
   cursor: pointer;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -2775,6 +2775,7 @@ h3 {
   /* line 43, ../../Arafath/CL/Cl November/228. Resume-02/HTML/scss/_footer.scss */
   .footer .footer_top .single_links {
     margin-bottom: 10px;
+    margin-inline: 30px;
   }
 }
 
@@ -6297,3 +6298,150 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+/* ////////////////////////////////////////////////////////////// */
+/* This following code is used to show the flash message in html */
+.confirmation-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 200px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  border-radius: 5%;
+}
+/* 
+.confirmation-card button {
+
+} */
+
+.confirmation-card h2 {
+  margin-top: 0;
+}
+
+.confirmation-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 50px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#okbutton :hover {
+  background-color: #eb4343;
+}
+
+.confirm-button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: #000;
+}
+
+.flash-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.flash-message.show {
+  display: block;
+  animation: fadeOut 2s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
